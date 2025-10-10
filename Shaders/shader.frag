@@ -13,7 +13,7 @@ uniform sampler2D texture2D;
 
 vec3 ambientLight()
 {
-float ambientStrength = 0.1f;
+float ambientStrength = 0.8f;
 vec3 ambient = lightColour * ambientStrength;
 return ambient;
 }
