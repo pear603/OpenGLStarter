@@ -33,11 +33,11 @@ Mesh *obj3;
 Mesh *obj4;
 
 // Camera
-glm::vec3 cameraPos(1.0f, 0.5f, 2.0f);
+glm::vec3 cameraPos(60.0f, 0.5f, 30.5f);
 glm::vec3 cameraDirection(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp(0.0f, 1.0f, 0.0f);
 glm::vec3 cameraRight(1.0f, 0.0f, 0.0f);
-float yaw = -90.0f, pitch = 0.0f;
+float yaw =  -135.0f, pitch = 0.0f;
 
 glm::vec3 lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
 glm::vec3 lightPos = glm::vec3(-10.0f, 0.0f, 10.0f);
@@ -367,15 +367,17 @@ glm::vec3 CoralScales[] = {
 
  glm::vec3 CrystalPositions[] = {
     // --- Group 1: Main coral cluster (near camera) ---
-    {-5.0f, -7.5f, -8.0f},
-    {38.0f, -7.5f, -25.0f},
-    {0.0f, -7.5f, 0.0f},    
+    {10.0f, -7.5f, -30.0f},
+    {3.0f, -7.5f, -10.0f},
+    {6.0f, -7.5f, -5.0f},
+    {15.0f, -7.5f, -22.0f},    
 };
 
 glm::vec3 CrystalScale[] = {
     // --- Group 1: Main coral cluster (near camera) ---
     {5.0f, 5.5f, 5.0f},   // Big central coral
     {4.0f, 4.5f, 4.0f},
+    {3.0f, 3.0f, 3.0f},
     {3.0f, 3.0f, 3.0f},
 
 };     
@@ -465,22 +467,22 @@ glm::vec3 CrystalScale[] = {
             meshList3[i]->RenderMesh();
         }
 
-        //Crystal
-        // for (int i = 0; i < 2; i++)
-        // {
-        //     glm::mat4 model(1.0f);
-        //     model = glm::translate(model, CrystalPositions[i]);
-        //     // model = glm::rotate(model,glm::radians(2.0f*i),glm::vec3(1.0f,0.3f,0.5f));
-        //     // model = glm::scale(model, glm::vec3(0.8f));
-        //     model = glm::scale(model, CrystalScale[i]);
-        //     glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+        // Crystal
+        for (int i = 0; i < 4; i++)
+        {
+            glm::mat4 model(1.0f);
+            model = glm::translate(model, CrystalPositions[i]);
+            // model = glm::rotate(model,glm::radians(2.0f*i),glm::vec3(1.0f,0.3f,0.5f));
+            // model = glm::scale(model, glm::vec3(0.8f));
+            model = glm::scale(model, CrystalScale[i]);
+            glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
-        //     glActiveTexture(GL_TEXTURE0);
-        //     glBindTexture(GL_TEXTURE_2D, texture4);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, texture4);
 
 
-        //     meshList4[i]->RenderMesh();
-        // }
+            meshList4[i]->RenderMesh();
+        }
 
         // {
         //     std::cout << cameraPos.x << " " << cameraPos.y << " " << cameraPos.z << "\n" << "direction : " << cameraDirection.x << " "<< cameraDirection.y<< " "<< cameraDirection.z<<" "<<"\n";
