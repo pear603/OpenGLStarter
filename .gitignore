@@ -16,7 +16,6 @@ cmake-build-*/
 *.dll
 *.lib
 *.pdb
-*.obj
 *.o
 *.a
 
