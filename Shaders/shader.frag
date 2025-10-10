@@ -20,7 +20,7 @@ return ambient;
 
 vec3 diffuseLight()
 {
-float diffuseStrength = 0.8;
+float diffuseStrength = 0.5;
 vec3 lightDir = normalize(lightPos - FragPos);
 vec3 norm = normalize(Normal);
 float diff = max(dot(norm, lightDir), 0.0f);

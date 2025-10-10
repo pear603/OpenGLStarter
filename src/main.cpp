@@ -492,21 +492,21 @@ glm::vec3 CrystalScale[] = {
 
 
         // Draw light mesh
-        shaderList[1]->UseShader();
-        uniformModel = shaderList[1]->GetUniformLocation("model");
-        uniformView = shaderList[1]->GetUniformLocation("view");
-        uniformProjection = shaderList[1]->GetUniformLocation("projection");
+        // shaderList[1]->UseShader();
+        // uniformModel = shaderList[1]->GetUniformLocation("model");
+        // uniformView = shaderList[1]->GetUniformLocation("view");
+        // uniformProjection = shaderList[1]->GetUniformLocation("projection");
 
-        glUniform3fv(shaderList[1]->GetUniformLocation("lightColour"), 1, glm::value_ptr(lightColour));
-        light->RenderMesh();
-        glm::mat4 model(1.0f);
+        // glUniform3fv(shaderList[1]->GetUniformLocation("lightColour"), 1, glm::value_ptr(lightColour));
+        // light->RenderMesh();
+        // glm::mat4 model(1.0f);
 
-        model = glm::translate(model, lightPos);
-        model = glm::scale(model, glm::vec3(0.2f)); // smaller cube
+        // model = glm::translate(model, lightPos);
+        // model = glm::scale(model, glm::vec3(0.2f)); // smaller cube
 
-        glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-        glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
-        glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+        // glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+        // glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
+        // glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 
         glUseProgram(0);
 
