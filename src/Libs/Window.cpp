@@ -44,7 +44,7 @@ int Window::initialise()
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
 
-    mainWindow = glfwCreateWindow(width, height, "Test Window", NULL, NULL);
+    mainWindow = glfwCreateWindow(width, height, "Ass2_66051096_66051170", NULL, NULL);
 
     if (!mainWindow)
     {

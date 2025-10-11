@@ -138,16 +138,6 @@ void CreateOBJ()
     {
         std::cout << "Failed to load model" << std::endl;
     }
-
-
-    light = new Mesh();
-    loaded = light->CreateMeshFromOBJ("Models/cube.obj");
-    if (!loaded)
-    {
-        std::cout << "Failed to load model" << std::endl;
-    }
-   
-
     
 }
 
@@ -422,8 +412,6 @@ glm::vec3 CrystalScale[] = {
         {
             glm::mat4 model(1.0f);
             model = glm::translate(model, JellyfishPositions[i]);
-            // model = glm::rotate(model,glm::radians(2.0f*i),glm::vec3(1.0f,0.3f,0.5f));
-            // model = glm::scale(model, glm::vec3(0.8f));
             model = glm::scale(model, JellyfishScales[i]);
             glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -439,7 +427,6 @@ glm::vec3 CrystalScale[] = {
         {
             glm::mat4 model(1.0f);
             model = glm::translate(model, GroundPositions[i]);
-            // model = glm::rotate(model,glm::radians(2.0f*i),glm::vec3(1.0f,0.3f,0.5f));
             model = glm::scale(model, GroundScale[i]);
             glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -455,8 +442,6 @@ glm::vec3 CrystalScale[] = {
         {
             glm::mat4 model(1.0f);
             model = glm::translate(model, CoralPositions[i]);
-            // model = glm::rotate(model,glm::radians(2.0f*i),glm::vec3(1.0f,0.3f,0.5f));
-            // model = glm::scale(model, glm::vec3(0.8f));
             model = glm::scale(model, CoralScales[i]);
             glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -472,8 +457,6 @@ glm::vec3 CrystalScale[] = {
         {
             glm::mat4 model(1.0f);
             model = glm::translate(model, CrystalPositions[i]);
-            // model = glm::rotate(model,glm::radians(2.0f*i),glm::vec3(1.0f,0.3f,0.5f));
-            // model = glm::scale(model, glm::vec3(0.8f));
             model = glm::scale(model, CrystalScale[i]);
             glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -484,29 +467,10 @@ glm::vec3 CrystalScale[] = {
             meshList4[i]->RenderMesh();
         }
 
-        // {
-        //     std::cout << cameraPos.x << " " << cameraPos.y << " " << cameraPos.z << "\n" << "direction : " << cameraDirection.x << " "<< cameraDirection.y<< " "<< cameraDirection.z<<" "<<"\n";
-
-        // }
 
 
 
-        // Draw light mesh
-        // shaderList[1]->UseShader();
-        // uniformModel = shaderList[1]->GetUniformLocation("model");
-        // uniformView = shaderList[1]->GetUniformLocation("view");
-        // uniformProjection = shaderList[1]->GetUniformLocation("projection");
-
-        // glUniform3fv(shaderList[1]->GetUniformLocation("lightColour"), 1, glm::value_ptr(lightColour));
-        // light->RenderMesh();
-        // glm::mat4 model(1.0f);
-
-        // model = glm::translate(model, lightPos);
-        // model = glm::scale(model, glm::vec3(0.2f)); // smaller cube
-
-        // glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-        // glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
-        // glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+        
 
         glUseProgram(0);
 
